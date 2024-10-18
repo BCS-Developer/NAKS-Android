@@ -5,22 +5,26 @@ class textFormField extends StatelessWidget {
   final String label;
   final String? hint;
 
-  final double height;
+  final double? height;
   final ValueChanged<String>? onChanged;
   final TextInputType keyboardType;
   final FormFieldValidator<String>? validator;
   final TextEditingController controller;
   final EdgeInsets? contentPadding;
+  final int? minLines;
+  final int? maxLines;
   const textFormField({
     super.key,
     required this.label,
     this.hint,
     required this.onChanged,
-    required this.height,
+      this.height,
     this.keyboardType = TextInputType.text,
     required this.validator,
     required this.controller,
     this.contentPadding,
+      this.minLines,
+      this.maxLines,
   });
 
   @override
@@ -30,9 +34,10 @@ class textFormField extends StatelessWidget {
     return SizedBox(
       height: height,
       child: TextFormField(
+        minLines: minLines,
+        maxLines: maxLines,
         keyboardType: keyboardType,
         controller: controller,
-        maxLines: null,
         style: TextStyle(
           fontFamily: Themes.fontFamily,
           fontSize: 16.0,

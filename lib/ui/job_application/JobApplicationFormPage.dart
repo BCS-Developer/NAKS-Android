@@ -198,10 +198,11 @@ class _JobApplicationFormPageState extends State<JobApplicationFormPage> {
                       _verticalSpacing,
                       textFormField(
                         controller: descriptionController,
-                        label: "Description", hint: "Description",
-                        height: 75,
-
-                        onChanged: (value) {}, // Add onChanged
+                        label: "Description",
+                        hint: "Description",
+                        minLines: 3,
+                        maxLines: 20,
+                        onChanged: (value) {},
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter a description';
