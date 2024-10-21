@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:top_examer/models/reel_model.dart';
 import 'package:top_examer/providers/global_provider.dart';
 import 'package:top_examer/ui/job_application/JobApplicationFormPage.dart';
+import 'package:top_examer/ui/job_application/applyJob.dart';
 import 'package:top_examer/utils/analytics_engine.dart';
 import 'package:top_examer/utils/themes.dart';
 
@@ -22,7 +23,8 @@ class _ReelMenuOptionsState extends State<ReelMenuOptions> {
   late PostsProvider postsProvider;
   late GlobalProvider globalProvider;
   final String jobCategory = "114";
-  final String matrimonyCategory = "114";
+  final String jobCategoryJob = "114";
+  final String matrimonyCategory = "115";
   @override
   void initState() {
     super.initState();
@@ -64,7 +66,32 @@ class _ReelMenuOptionsState extends State<ReelMenuOptions> {
                 ),
               ),
             ),
-
+          SizedBox(width: 5),
+          if (widget.reelData?.categoryId == jobCategory)
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Applyjjob()),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Themes.categoryName_background,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Text(
+                  "Add Job",
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: Themes.fontFamily,
+                    color: colorScheme.onPrimary,
+                  ),
+                ),
+              ),
+            ),
           IconButton(
               icon: SvgPicture.asset(
                 'assets/share.svg',

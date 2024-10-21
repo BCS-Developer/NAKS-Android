@@ -87,22 +87,22 @@ String removeAllHtmlTags(String htmlText) {
 }
 
 Future<bool> isTablet(BuildContext context) async {
+  if (Platform.isIOS) {
+    DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
+    IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
 
-    if (Platform.isIOS) {
-      DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-      IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
+    return iosInfo.model.toLowerCase() == "ipad";
+  } else {
+    // The equivalent of the "smallestWidth" qualifier on Android.
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
 
-      return iosInfo.model.toLowerCase() == "ipad";
-    } else {
-      // The equivalent of the "smallestWidth" qualifier on Android.
-      var shortestSide = MediaQuery.of(context).size.shortestSide;
-
-      // Determine if we should use mobile layout or not, 600 here is
-      // a common breakpoint for a typical 7-inch tablet.
-      return shortestSide > 600;
-    }
+    // Determine if we should use mobile layout or not, 600 here is
+    // a common breakpoint for a typical 7-inch tablet.
+    return shortestSide > 600;
   }
-   Map<String, String> getHeaders() {
+}
+
+Map<String, String> getHeaders() {
   String? tenetId = TokenManager.getTenetId();
 
   return {

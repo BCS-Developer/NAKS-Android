@@ -97,7 +97,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     return widget.isFirstTime
         ? Scaffold(
             appBar: AppBar(
-              backgroundColor: colorScheme.onError,
+              backgroundColor: colorScheme.error,
               title: const Text(
                 'Registration',
                 style: Themes.appBarHeader,
@@ -207,6 +207,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               TextFormField(
+                                cursorColor: colorScheme.onSurface,
                                 style: const TextStyle(
                                     fontFamily: Themes.fontFamily,
                                     fontSize: 16),
@@ -269,6 +270,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               ),
                               const SizedBox(height: 15),
                               TextFormField(
+                                cursorColor: colorScheme.onSurface,
                                 style: const TextStyle(
                                     fontFamily: Themes.fontFamily,
                                     fontSize: 16),
@@ -354,6 +356,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               ),
                               const SizedBox(height: 15),
                               TextFormField(
+                                cursorColor: colorScheme.onSurface,
                                 style: const TextStyle(
                                     fontFamily: Themes.fontFamily,
                                     fontSize: 16),
@@ -421,6 +424,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 height: 15,
                               ),
                               TextFormField(
+                                cursorColor: colorScheme.onSurface,
                                 style: const TextStyle(
                                     fontFamily: Themes.fontFamily,
                                     fontSize: 16),
@@ -428,7 +432,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 controller: numbercontroller,
                                 decoration: InputDecoration(
                                   labelText: 'Phone Number',
-                                  prefixText: 'IND +91  ',
+                                  // prefixText: 'IND +91  ',
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(
                                         10), // Circular border radius
@@ -645,7 +649,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     height: 50,
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                          backgroundColor: Color.fromARGB(255, 235, 213, 19),
+                                          backgroundColor:
+                                              Color.fromARGB(255, 235, 213, 19),
                                           minimumSize: const Size(327, 50),
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(

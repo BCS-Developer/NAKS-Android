@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:top_examer/ui/login_page/getpostbycat.dart';
 import 'package:top_examer/ui/login_page/otp_widget.dart';
+import 'package:top_examer/ui/login_page/registration.dart';
 import 'package:top_examer/utils/constants.dart';
 import 'package:top_examer/utils/themes.dart';
 
@@ -49,10 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                   const Text(
                     textAlign: TextAlign.center,
                     'Welcome to ${AppConstants.appName} !',
-                    style: TextStyle(
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: Themes.fontFamily),
+                    style: Themes.loginpagetext,
                   ),
                   const SizedBox(
                     height: 10.0,
@@ -67,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                       _mobile = value;
                       debugPrint(_mobile);
                     },
-                    height: 75.0,  
+                    height: 75.0,
                   ),
                   const SizedBox(
                     height: 4.0,
@@ -112,6 +111,28 @@ class _LoginPageState extends State<LoginPage> {
                           );
                     },
                   ),
+                  SizedBox(height: 20),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Registration(),
+                          ),
+                        );
+                      },
+                      child: Text("Creat account")),
+                      SizedBox(height: 20),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PostsScreen(),
+                          ),
+                        );
+                      },
+                      child: Text("get post"))
                 ],
               ),
             ),
